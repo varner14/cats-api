@@ -31,7 +31,6 @@ class CatController extends Controller
         $client = new Client();
         $response = $client->request('GET', 'https://api.thecatapi.com/v1/breeds');
         $collection = collect(json_decode($response->getBody(), true));
-        $collection = collect(json_decode($response->getBody(), true));
         $search = $collection->filter(function ($item) use ($request) {
             return false !== stristr($item['name'], $request->name);
         });
